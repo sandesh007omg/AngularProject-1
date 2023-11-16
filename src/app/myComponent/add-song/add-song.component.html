@@ -1,0 +1,47 @@
+<section>
+  <h2>Create Song</h2>
+  <form [formGroup]="addSongs" (ngSubmit)="getFormData()">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Enter name"
+        formControlName="name"
+      />
+      <div
+        *ngIf="
+          addSongs.get('name').hasError('required') &&
+          addSongs.get('name').touched
+        "
+        class="text-danger"
+      >
+        Name is required
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="type">Song Type</label>
+      <select class="form-control" formControlName="type">
+        <option value="">Select Song type</option>
+        <option value="pop">Pop</option>
+        <option value="metal">Metal</option>
+        <option value="rock">Rock</option>
+      </select>
+      <div
+        *ngIf="
+          addSongs.get('type').hasError('required') &&
+          addSongs.get('type').touched
+        "
+        class="text-danger"
+      >
+        Type is required
+      </div>
+    </div>
+    <div class="btn-footer">
+      <button type="submit" class="btn btn-primary">Submit</button>
+      <button type="submit" class="btn btn-danger" (click)="resetForm($event)">
+        Cancel
+      </button>
+    </div>
+  </form>
+</section>

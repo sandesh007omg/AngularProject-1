@@ -1,0 +1,58 @@
+/* You can add global styles to this file, and also import other style files */
+
+body {
+  background-color: #eee;
+  nav {
+    padding: 0 48px !important;
+    .navbar-collapse {
+      justify-content: space-between;
+      input {
+        width: 200px;
+        height: 32px;
+      }
+    }
+  }
+  h2 {
+    margin-bottom: 32px;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 5px;
+  }
+  table {
+    th {
+      background-color: #eee !important;
+    }
+  }
+  form {
+    width: 40%;
+    background-color: #ffffff;
+    border-radius: 4px;
+    padding: 24px;
+    margin: 12% auto;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 8px 0px;
+    .form-group {
+      margin-bottom: 16px;
+    }
+  }
+  .btn-footer {
+    display: flex;
+    gap: 16px;
+    justify-content: end;
+  }
+  .alert {
+    min-width: 100px;
+    max-width: 300px;
+    height: 40px;
+    line-height: 5px;
+    color: #000;
+    left: 48px !important;
+    &.alert-danger {
+      color: #dc3545;
+    }
+    &.alert-success {
+      color: green;
+    }
+  }
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

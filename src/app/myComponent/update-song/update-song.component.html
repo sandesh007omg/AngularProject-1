@@ -1,0 +1,59 @@
+<section>
+  <h2># Edit Song</h2>
+
+  <form [formGroup]="updateSongs" (ngSubmit)="getFormData()">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Enter name"
+        formControlName="name"
+      />
+      <div
+        *ngIf="
+          updateSongs.get('name').hasError('required') &&
+          updateSongs.get('name').touched
+        "
+        class="text-danger"
+      >
+        Name is required
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="type">Song Type</label>
+      <select class="form-control" formControlName="type">
+        <option value="">Select Song type</option>
+        <option value="pop">Pop</option>
+        <option value="metal">Metal</option>
+        <option value="rock">Rock</option>
+        <option value="rock">Old</option>
+        <option value="rock">Jazz</option>
+        <!-- Add more options as needed -->
+      </select>
+      <div
+        *ngIf="
+          updateSongs.get('type').hasError('required') &&
+          updateSongs.get('type').touched
+        "
+        class="text-danger"
+      >
+        Type is required
+      </div>
+    </div>
+    <!-- <div class="form-group">
+    <label for="categories">Categories</label>
+    <select class="form-control" formControlName="categories" multiple>
+      <option *ngFor="let ca of category" [value]="ca.value">
+        {{ ca.label }}
+      </option>
+    </select>
+  </div> -->
+    <div class="btn-footer">
+      <button type="submit" class="btn btn-primary">Submit</button>
+      <button type="submit" class="btn btn-danger" (click)="resetForm($event)">
+        Cancel
+      </button>
+    </div>
+  </form>
+</section>

@@ -1,0 +1,13 @@
+<ng-container *ngIf="alert">
+  <div
+    class="app-alert alert alert-{{
+      alert.type
+    }} alert-dismissible fade show fixed-bottom mb-2 mr-2"
+    role="alert"
+  >
+    {{ alert.message }}
+    <!-- <button type="button" class="close" (click)="dismissAlert()">
+      <span aria-hidden="true">&times;</span>
+    </button> -->
+  </div>
+</ng-container>
