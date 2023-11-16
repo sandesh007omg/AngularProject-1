@@ -36,7 +36,8 @@ export class SongDetailsComponent implements OnInit {
   }
 
   combineSingerList(valueArray: Array<any>) {
-    return valueArray.toString();
+    const newValue = valueArray?.map(({ name }: any) => name);
+    return newValue.toString();
   }
   update(id: number) {
     this.loadingService.setLoading(true);

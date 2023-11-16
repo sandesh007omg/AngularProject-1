@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NO_ERRORS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,6 +14,8 @@ import { AlertComponent } from './myComponent/alert/alert.component';
 import { ConfirmationModalComponent } from './myComponent/confirmation-modal/confirmation-modal.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -35,8 +37,11 @@ import { MatDialogModule } from '@angular/material/dialog';
     FormsModule,
     MatDialogModule,
     BrowserAnimationsModule,
+    CommonModule,
+    NgMultiSelectDropDownModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent],
+  schemas: [NO_ERRORS_SCHEMA],
 })
 export class AppModule {}

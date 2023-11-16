@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { MySongsService } from '../../service/my-songs.service';
 import { ActivatedRoute } from '@angular/router';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { IDropdownSettings } from 'ng-multiselect-dropdown';
+import { singerList } from 'src/app/mockData/songs';
 
 @Component({
   selector: 'app-update-song',
@@ -17,6 +19,9 @@ export class UpdateSongComponent {
     type: new FormControl('', [Validators.required]),
     singerList: new FormControl([]),
   });
+  dropdownList: any = [];
+  selectedItems: any = [];
+  dropdownSettings: IDropdownSettings = {};
 
   constructor(private update: MySongsService, private route: ActivatedRoute) {}
 
@@ -27,6 +32,17 @@ export class UpdateSongComponent {
         this.loadSongDetails();
       }
     });
+    this.dropdownList = singerList;
+    this.selectedItems = [...this.details?.singerList];
+    this.dropdownSettings = {
+      singleSelection: false,
+      idField: 'id',
+      textField: 'name',
+      selectAllText: 'Select All',
+      unSelectAllText: 'UnSelect All',
+      itemsShowLimit: 3,
+      allowSearchFilter: true,
+    };
   }
 
   loadSongDetails() {
@@ -38,7 +54,7 @@ export class UpdateSongComponent {
       this.updateSongs.setValue({
         name: this.details?.name,
         type: this.details?.type,
-        singerList: [],
+        singerList: this.details?.singerList,
       });
     });
   }
@@ -57,7 +73,14 @@ export class UpdateSongComponent {
     this.updateSongs.setValue({
       name: this.originalFormData?.name,
       type: this.originalFormData?.type,
-      singerList: [],
+      singerList: this.originalFormData?.singerList,
     });
+  }
+
+  onItemSelect(item: any) {
+    console.log(item);
+  }
+  onSelectAll(items: any) {
+    console.log(items);
   }
 }

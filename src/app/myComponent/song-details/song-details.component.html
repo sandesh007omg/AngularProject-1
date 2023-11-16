@@ -1,22 +1,22 @@
 <div class="details">
-  <section class="btn-wrapper">
-    <button type="button" class="btn btn-primary" (click)="update(details?.id)">
+    <section class="btn-wrapper">
+        <button type="button" class="btn btn-primary" (click)="update(details?.id)">
       Edit
     </button>
-    <button type="button" class="btn btn-danger" (click)="delete(details?.id)">
+        <button type="button" class="btn btn-danger" (click)="delete(details?.id)">
       <i class="bi bi-trash"></i> Delete
     </button>
-  </section>
-  <section class="song-details">
-    <h2>Songs Details</h2>
-    <p>
-      Title:<span>{{ details?.name }}</span>
-    </p>
-    <p>
-      Type:<span>{{ details?.type }}</span>
-    </p>
-    <p>
-      Singers:<span>{{ combineSingerList(details.singerList) }}</span>
-    </p>
-  </section>
+    </section>
+    <section class="song-details">
+        <h2>Songs Details</h2>
+        <p>
+            Title:<span>{{ details?.name }}</span>
+        </p>
+        <p>
+            Type:<span>{{ details?.type }}</span>
+        </p>
+        <p>
+            Singers:<span>{{ combineSingerList(details.singerList) }}</span>
+        </p>
+    </section>
 </div>

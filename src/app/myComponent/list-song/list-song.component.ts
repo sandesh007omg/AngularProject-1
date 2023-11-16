@@ -51,8 +51,9 @@ export class ListSongComponent {
   //   });
   // }
 
-  combineSingerList(valueArray: Array<any>) {
-    return valueArray.toString();
+  combineSingerList(valueArray: any) {
+    const newValue = valueArray?.map(({ name }: any) => name);
+    return newValue.toString();
   }
 
   viewDetail(song: any) {
